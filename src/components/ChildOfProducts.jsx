@@ -1,14 +1,26 @@
-import React from 'react'
+import React from "react";
 
-const ChildOfProducts = (data) => {
-  let {label,price}=data
-
+const ChildOfProducts = ({ children, onDeleteProduct, id }) => {
   return (
-    <div>
-      <h1>{label}</h1>
-      <button className="btn btn-success ">{price}</button>
-    </div>
-  )
-}
+    <>
+      <div className="my-4">
+        <div
+          className="card text-white bg-primary mb-3"
+          style={{ maxWidth: "20rem" }}
+        >
+          {children}
+        </div>
+        <button
+          className="btn btn-danger"
+          onClick={() => {
+            onDeleteProduct(id);
+          }}
+        >
+          Delete
+        </button>
+      </div>
+    </>
+  );
+};
 
-export default ChildOfProducts
+export default ChildOfProducts;
