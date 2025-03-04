@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { ProductContext } from "../Contexts/ProductContext";
 
 const Navbar = () => {
+  const { products, title } = useContext(ProductContext);
+
   return (
     <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="dd">
-          Chaima
+          {title ? title : "ma fama 7ata title!"}
         </NavLink>
         <button
           className="navbar-toggler"
@@ -23,7 +26,7 @@ const Navbar = () => {
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
               <NavLink className="nav-link " to="/">
-                Home
+                Home ({products.length})
                 <span className="visually-hidden">(current)</span>
               </NavLink>
             </li>
@@ -33,7 +36,12 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/contact">
+              <NavLink
+                className={(navData) =>
+                  `NavLink ${navData.isActive ? "active" : ""}`
+                }
+                to="/contact"
+              >
                 Contact
               </NavLink>
             </li>

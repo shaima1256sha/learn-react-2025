@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ProductContext } from "../Contexts/ProductContext";
 
-const ChildOfProducts = ({ children, onDeleteProduct, id }) => {
+const ChildOfProducts = ({ children, id }) => {
+    const {deleteProduct} = useContext(ProductContext)
+  
   return (
     <>
       <div className="my-4">
@@ -12,9 +15,9 @@ const ChildOfProducts = ({ children, onDeleteProduct, id }) => {
         </div>
         <button
           className="btn btn-danger"
-          onClick={() => {
-            onDeleteProduct(id);
-          }}
+          onClick={() => 
+            deleteProduct(id)
+          }
         >
           Delete
         </button>
