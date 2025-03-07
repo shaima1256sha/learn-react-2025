@@ -5,6 +5,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import ShowProducts from "./components/ShowProducts";
 import { ProductProvider } from "./Contexts/ProductContext";
+import ArticleList from "./components/articles/ArticleList";
 
 const App = () => {
   return (
@@ -17,6 +18,9 @@ const App = () => {
           <Route path="/product/:idProduct" element={<ShowProducts />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<ArticleList />} />
+
+  
           
 
 
